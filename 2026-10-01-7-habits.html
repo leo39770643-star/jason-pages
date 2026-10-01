@@ -61,12 +61,31 @@ a{color:var(--gold);text-decoration:none;word-break:break-all;}
 .stat-op{font-size:20px;color:var(--faint);font-weight:300;}
 .author-card{margin-top:28px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:var(--r-md);padding:16px 20px;position:relative;z-index:1;}
 .author-card .a{font-weight:700;color:var(--gold);font-size:15px;}
-.author-card{display:flex;align-items:center;gap:22px;}
+.author-card{display:flex;align-items:center;gap:28px;padding:26px 28px;}
 .author-card .b{flex:1;margin-top:0;font-size:15.5px;line-height:1.85;color:var(--text);}
 @media(max-width:480px){.author-card .b{font-size:14.5px;}}
 .author-card .who{flex-shrink:0;width:132px;text-align:center;}
 .author-card .av{display:block;width:120px;height:120px;margin:0 auto 10px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);box-shadow:0 6px 18px rgba(120,90,30,0.16);}
 .author-card .h{font-size:12px;color:var(--dim);margin-top:2px;}
+.author-card .who{width:210px;}
+/* 電腦版：方形大照片 */
+.author-card .av{width:210px;height:210px;border-radius:14px;border:none;margin-bottom:14px;box-shadow:0 10px 28px rgba(120,90,30,0.18);}
+.author-card .a{font-size:17px;}
+.author-card .r{font-size:12px;color:var(--text);margin-top:4px;line-height:1.5;}
+.author-card .b p{margin:0 0 14px;}
+.author-card .b p.end{margin-bottom:0;}
+.author-card .b .lead{font-family:var(--serif);font-weight:900;font-size:19px;color:#2a2620;line-height:1.5;margin-bottom:16px;}
+.author-card .b .hl{color:var(--gold);font-weight:700;}
+.author-card .b .end{padding-top:14px;border-top:1px dashed var(--line);}
+.author-card .move{background:var(--card2);border:1px solid var(--gold-dim);border-radius:12px;padding:14px 16px;margin:4px 0 16px;}
+.author-card .mv-k{font-size:11.5px;font-weight:700;color:var(--gold);letter-spacing:0.06em;margin-bottom:4px;}
+.author-card .mv-t{font-family:var(--serif);font-weight:900;font-size:16.5px;color:#2a2620;line-height:1.5;margin-bottom:10px;}
+.author-card .mv-flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:8px;}
+.author-card .mv-flow span{background:var(--gold);color:#1a1406;font-weight:700;font-size:13px;padding:3px 12px;border-radius:50px;white-space:nowrap;}
+.author-card .mv-flow i{font-style:normal;color:var(--gold);font-weight:700;}
+.author-card .mv-n{font-size:13.5px;color:var(--dim);}
+.author-card .tg{display:flex;flex-wrap:wrap;justify-content:center;gap:5px;margin-top:10px;}
+.author-card .tg span{font-size:11.5px;color:var(--gold);border:1px solid var(--gold-dim);background:rgba(212,144,42,0.08);border-radius:50px;padding:2px 9px;white-space:nowrap;}
 @media(max-width:480px){.author-card{gap:14px;}.author-card .who{width:96px;}.author-card .av{width:88px;height:88px;}}
 
 
@@ -107,8 +126,8 @@ a{color:var(--gold);text-decoration:none;word-break:break-all;}
 .bul li b{color:var(--gold);}
 
 .steps{margin:12px 0 4px;counter-reset:s;}
-.steps .st{display:flex;gap:11px;margin-bottom:11px;font-size:14px;line-height:1.72;color:var(--text);}
-.steps .st::before{counter-increment:s;content:counter(s);flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--gold);color:#1a1406;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+.steps .st{position:relative;padding-left:33px;margin-bottom:11px;font-size:14px;line-height:1.72;color:var(--text);}
+.steps .st::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;background:var(--gold);color:#1a1406;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:2px;}
 .steps .st b{color:var(--gold);}
 
 .acc{display:flex;flex-direction:column;gap:10px;}
@@ -119,6 +138,7 @@ details.ch summary::-webkit-details-marker{display:none;}
 .ch-n{flex-shrink:0;min-width:34px;height:30px;padding:0 9px;border-radius:8px;background:rgba(212,144,42,0.14);border:1px solid var(--gold-dim);color:var(--gold);font-family:var(--mono);font-weight:500;font-size:12px;display:flex;align-items:center;justify-content:center;}
 .ch-t{flex:1;font-weight:700;font-size:14.5px;color:var(--text);line-height:1.4;}
 .ch-t .en{font-weight:400;color:var(--dim);font-size:12.5px;}
+.ch-t .en .dot{font-style:normal;}
 .ch-mk{flex-shrink:0;width:22px;height:22px;position:relative;}
 .ch-mk::before,.ch-mk::after{content:"";position:absolute;background:var(--gold);border-radius:2px;transition:transform .25s ease;}
 .ch-mk::before{top:10px;left:4px;width:14px;height:2px;}
@@ -221,6 +241,57 @@ details.ch[open] .ch-mk::after{transform:rotate(90deg);opacity:0;}
   .sec h2{font-size:21px;}
   .prog{top:50px;}
 }
+/* ── 手機版排版 ── */
+@media(max-width:600px){
+  .hero{padding:40px 20px 30px;}
+  .sec{padding:32px 20px;}
+  .mid-cta{margin:0 20px;}
+  .cta{padding:36px 16px 44px;}
+  .cta-card{padding:26px 18px;}
+  .footer{padding:20px 20px 40px;}
+  .hero-sub{font-size:14.5px;}
+
+  /* 數字列：三格平均，不換行 */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;}
+  .stat-op{display:none;}
+  .stat .n{font-size:28px;}
+  .stat .l{font-size:11px;}
+
+  /* 自介卡：頭像＋名字一列在上，自介全寬在下 */
+  .author-card{flex-direction:column;align-items:stretch;gap:14px;padding:18px 18px 20px;}
+  .author-card .who{order:-1;width:auto;display:grid;grid-template-columns:72px 1fr;column-gap:14px;align-content:center;text-align:left;padding-bottom:14px;border-bottom:1px solid var(--line);}
+  .author-card picture{grid-row:1 / span 3;}
+  .author-card .av{width:72px;height:72px;margin:0;border-radius:50%;border:3px solid var(--gold);box-shadow:0 6px 18px rgba(120,90,30,0.16);}
+  .author-card .r{margin-top:2px;}
+  .author-card .tg{grid-column:1 / -1;justify-content:flex-start;margin-top:12px;}
+  .author-card .move{padding:13px 14px;}
+  .author-card .mv-t{font-size:16px;}
+  .author-card .b .lead{font-size:18px;}
+  .author-card .a{font-size:17px;}
+  .author-card .b{font-size:15px;line-height:1.9;}
+
+  /* 速查表：改成一列一張小卡，不用左右滑 */
+  .tblwrap{overflow:visible;}
+  .tbl{min-width:0;}
+  .tbl thead{display:none;}
+  .tbl tr{display:grid;grid-template-columns:30px 1fr;padding:13px 14px;border-bottom:1px solid var(--line);}
+  .tbl tr:last-child{border-bottom:none;}
+  .tbl td{padding:0;border:none;}
+  .tbl td:first-child{grid-row:1 / span 2;font-family:"Inter";font-weight:800;color:var(--gold);font-size:15px;}
+  .tbl td:nth-child(2){font-weight:700;color:#2a2620;font-size:14.5px;}
+  .tbl td:nth-child(3){font-size:13.5px;color:var(--dim);margin-top:3px;}
+  .tbl td:nth-child(3)::before{content:"→ ";color:var(--gold);}
+
+  /* 加入按鈕：一行放得下 */
+  .skbtn{font-size:16px;padding:15px 24px;white-space:nowrap;}
+  .mid-card{padding:24px 18px;}
+
+  /* 摺疊卡：副標換到標題下一行 */
+  details.ch summary{padding:15px 16px;align-items:flex-start;}
+  .ch-t .en{display:block;margin-top:3px;}
+  .ch-t .en .dot{display:none;}
+  .ch-mk{margin-top:4px;}
+}
 </style>
 </head>
 <body>
@@ -256,7 +327,22 @@ details.ch[open] .ch-mk::after{transform:rotate(90deg);opacity:0;}
       <div class="stat-op">·</div>
       <div class="stat"><div class="n">7</div><div class="l">天 · 打勾清單</div></div>
     </div>
-    <div class="author-card"><div class="b">奇點學院 × D11 創辦人。我都說我們是拍影片的：2024年開了 D11，幫店家和品牌做短影音。今年開始把公司的流程大量 AI 化，自己的帳號大概三個月從3,000多做到六萬多。下面這7個習慣，是我自己現在還在練的。</div><div class="who"><img class="av" src="jason-avatar.jpg" alt="傑森所長" width="120" height="120"><div class="a">傑森所長</div><div class="h">@jasonxtsai</div></div></div>
+    <div class="author-card">
+      <div class="b">
+        <p class="lead">我都說，我們是拍影片的。</p>
+        <p>2024年開了 D11，<br>幫店家和品牌做短影音。</p>
+        <p>今年開始，<br>把公司的流程大量交給 AI。</p>
+        <div class="move">
+          <div class="mv-k">我現在在做的事</div>
+          <div class="mv-t">《把一間自媒體公司搬到 AI 上》</div>
+          <div class="mv-flow"><span>輪播貼文</span><i>→</i><span>AI 剪輯</span><i>→</i><span>數位分身</span></div>
+          <div class="mv-n">搬好一個，就放進奇點研究所。</div>
+        </div>
+        <p>自己的帳號，60天<br>從<span class="hl">3,000做到5萬</span>粉絲。<br>同一套流程，你也可以拿去用。</p>
+        <p class="end">下面這7個習慣，<br>是我自己現在還在練的。</p>
+      </div>
+      <div class="who"><picture><source media="(max-width:600px)" srcset="jason-avatar.jpg"><img class="av" src="jason-photo.jpg" alt="傑森所長" width="210" height="210"></picture><div class="a">傑森所長</div><div class="r">奇點研究所所長<br>奇點學院 × D11 創辦人</div><div class="h">@jasonxtsai</div><div class="tg"><span>AI 工作流</span><span>自媒體實戰</span><span>增加收入</span></div></div>
+    </div>
   </div>
 
   <!-- 2. 直接給答案：速查 -->
@@ -282,7 +368,7 @@ details.ch[open] .ch-mk::after{transform:rotate(90deg);opacity:0;}
 
     <div class="acc">
 
-      <details class="ch" open><summary><span class="ch-n">1</span><span class="ch-t">答應的事，先做到一件小的<span class="en"> · 信任是一點一點存的</span></span><span class="ch-mk"></span></summary>
+      <details class="ch" open><summary><span class="ch-n">1</span><span class="ch-t">答應的事，先做到一件小的<span class="en"><i class="dot"> · </i>信任是一點一點存的</span></span><span class="ch-mk"></span></summary>
       <div class="ch-body">
         <p>我現在看一個人，會先看他答應的事情有沒有做到。後來發現，對自己也是一樣。</p>
         <div class="pos"><b>為什麼會累積：</b>你對自己說到做到幾次，就會越相信自己做得到。這個信任，是一次一次存起來的。</div>
@@ -294,7 +380,7 @@ details.ch[open] .ch-mk::after{transform:rotate(90deg);opacity:0;}
         </div>
       </div></details>
 
-      <details class="ch"><summary><span class="ch-n">2</span><span class="ch-t">想做的事，先做一個很小的版本<span class="en"> · 做了才知道長怎樣</span></span><span class="ch-mk"></span></summary>
+      <details class="ch"><summary><span class="ch-n">2</span><span class="ch-t">想做的事，先做一個很小的版本<span class="en"><i class="dot"> · </i>做了才知道長怎樣</span></span><span class="ch-mk"></span></summary>
       <div class="ch-body">
         <p>說想做自媒體，一支影片都沒發。這種狀況我看過很多次，我自己以前也有。</p>
         <div class="insight"><div class="il">我常跟身邊的人講</div><div class="it">就趕快開始吧，你沒有開始，你都不會知道是長怎樣。</div></div>
@@ -307,7 +393,7 @@ details.ch[open] .ch-mk::after{transform:rotate(90deg);opacity:0;}
         </ul>
       </div></details>
 
-      <details class="ch"><summary><span class="ch-n">3</span><span class="ch-t">每天留一段時間給自己的事<span class="en"> · 不用等處理完別人才輪到你</span></span><span class="ch-mk"></span></summary>
+      <details class="ch"><summary><span class="ch-n">3</span><span class="ch-t">每天留一段時間給自己的事<span class="en"><i class="dot"> · </i>不用等處理完別人才輪到你</span></span><span class="ch-mk"></span></summary>
       <div class="ch-body">
         <p>以前我很常幫別人想辦法、追別人進度、替別人著急。一天下來，最累的是我，自己的事反而沒動。</p>
         <div class="pos"><b>為什麼會累積：</b>每天30分鐘，一年下來就是180個小時。這段時間花在自己身上，會一直留著。</div>
@@ -319,7 +405,7 @@ details.ch[open] .ch-mk::after{transform:rotate(90deg);opacity:0;}
         </div>
       </div></details>
 
-      <details class="ch"><summary><span class="ch-n">4</span><span class="ch-t">把做過的事記下來<span class="en"> · 回頭看才知道自己有在動</span></span><span class="ch-mk"></span></summary>
+      <details class="ch"><summary><span class="ch-n">4</span><span class="ch-t">把做過的事記下來<span class="en"><i class="dot"> · </i>回頭看才知道自己有在動</span></span><span class="ch-mk"></span></summary>
       <div class="ch-body">
         <p>我花了好幾年等別人改。結果回頭看：他沒變，我自己也卡在原地。那時候如果有記下來，應該會早一點發現。</p>
         <div class="pos"><b>為什麼會累積：</b>記下來的東西，回頭看得到。一週、一個月之後，你會很清楚自己是往前了，還是在原地。</div>
@@ -331,7 +417,7 @@ details.ch[open] .ch-mk::after{transform:rotate(90deg);opacity:0;}
         </div>
       </div></details>
 
-      <details class="ch"><summary><span class="ch-n">5</span><span class="ch-t">看別人的行動，也看自己的<span class="en"> · 行事曆不太會騙人</span></span><span class="ch-mk"></span></summary>
+      <details class="ch"><summary><span class="ch-n">5</span><span class="ch-t">看別人的行動，也看自己的<span class="en"><i class="dot"> · </i>行事曆不太會騙人</span></span><span class="ch-mk"></span></summary>
       <div class="ch-body">
         <p>一個人有沒有真的想改，看行動就知道。我後來發現，這句話拿來看自己，有時候更有用。</p>
         <div class="judge no"><span class="jl">只有說</span>說要存錢，薪水進來先花。說要換工作，履歷一年沒打開。說想做自媒體，一支影片都沒發。</div>
@@ -344,7 +430,7 @@ details.ch[open] .ch-mk::after{transform:rotate(90deg);opacity:0;}
         </div>
       </div></details>
 
-      <details class="ch"><summary><span class="ch-n">6</span><span class="ch-t">重複的事，交給流程和工具<span class="en"> · 省下來的時間才會累積</span></span><span class="ch-mk"></span></summary>
+      <details class="ch"><summary><span class="ch-n">6</span><span class="ch-t">重複的事，交給流程和工具<span class="en"><i class="dot"> · </i>省下來的時間才會累積</span></span><span class="ch-mk"></span></summary>
       <div class="ch-body">
         <p>今年我們公司做了一件事：把原本靠人工的流程寫成步驟，再一步一步交給 AI。現在我自己一天可以產出兩三篇內容，以前一天做一篇，大部分時間就沒了。</p>
         <div class="pos"><b>為什麼會累積：</b>寫成步驟的事，下次就不用再想一次。工具每多接手一件，你每天就多一點時間做習慣3的事。</div>
@@ -357,7 +443,7 @@ details.ch[open] .ch-mk::after{transform:rotate(90deg);opacity:0;}
         <div class="tipline">AI 工具我會建議<b>先拿來解決一件具體的事</b>。一次想整合太多，通常只會更亂。</div>
       </div></details>
 
-      <details class="ch"><summary><span class="ch-n">7</span><span class="ch-t">待在正在動的人旁邊<span class="en"> · 不用說服誰，一起做就好</span></span><span class="ch-mk"></span></summary>
+      <details class="ch"><summary><span class="ch-n">7</span><span class="ch-t">待在正在動的人旁邊<span class="en"><i class="dot"> · </i>不用說服誰，一起做就好</span></span><span class="ch-mk"></span></summary>
       <div class="ch-body">
         <p>真的想做的人，其實不用一直催，他自己就會開始。所以我現在會先看：這個人平常怎麼做事？答應的事情有沒有做到？再決定要不要繼續一起走。</p>
         <div class="pos"><b>為什麼會累積：</b>身邊的人都在動，你會比較容易動。你做了什麼，也有人看得到、會回你。</div>
@@ -420,7 +506,7 @@ details.ch[open] .ch-mk::after{transform:rotate(90deg);opacity:0;}
 
   <!-- 3. 我們在做什麼 -->
   <div class="sec fade">
-    <span class="sec-tag">我們現在在做的事</span>
+    <span class="sec-tag">我們正在做的事</span>
     <h2>用 AI 做內容<br><span class="g">把時間留給自己</span></h2>
     <p>習慣6講的「交給流程和工具」，就是我們每天在做的事。團隊大部分是做企劃、拍攝、剪輯、貼文的人，今年開始把這些工作一步一步交給 AI，再把用得順的整理成工具。</p>
 
@@ -430,24 +516,6 @@ details.ch[open] .ch-mk::after{transform:rotate(90deg);opacity:0;}
       <div class="m"><div class="mn">Threads</div><div class="mw">每天要發什麼</div><div class="mq">寫出你的觀點跟專業</div></div>
     </div>
     <div class="tipline">這三個工具，都放在奇點研究所裡，有教學可以照著做。</div>
-  </div>
-
-  <!-- 3. 案例 -->
-  <div class="sec fade">
-    <span class="sec-tag">實際的例子</span>
-    <h2>我們自己<br><span class="g">跟身邊的人做過的</span></h2>
-
-    <div class="pnum"><span class="pn">01</span><span class="pt">我自己的帳號</span></div>
-    <p>以前影片拍得不錯，也有流量，粉絲就是一直起不來。去年底開始做輪播貼文、今年投入 AI 加自媒體，大概三個月從3,000多做到六萬多，其實蠻意外的。坦白說，變現的部分現在還是普通，這也是我們正在努力的。</p>
-
-    <div class="pnum"><span class="pn">02</span><span class="pt">一位教人類圖的學員</span></div>
-    <p>他的影片一開頭就講專有名詞，一般人聽不懂。我建議他先從觀眾的困擾講起，講到一半再把人類圖帶回來。他試了一兩支，觀看從幾百變成大約三千到五千。</p>
-    <div class="insight"><div class="il">那時候跟他講的</div><div class="it">你的專業，不要太早拿出來。</div></div>
-
-    <div class="pnum"><span class="pn">03</span><span class="pt">幾分鐘做好的心理測驗網頁</span></div>
-    <p>我不會做網頁，現在靠 AI 做得出來。我們用 AI 幾分鐘做了一個心理測驗網頁，放在我老婆的帳號，導流到朋友的小社群。8月大概帶了15到20筆訂單，成交額四萬多，那是朋友社群的營收。</p>
-
-    <div class="warn">⚠️ <b>這些都是個案。</b>每個人的帳號、產業、投入的時間都不一樣，我們不保證流量、粉絲或收入。能保證的是：這些都是我們實際做過的。</div>
   </div>
 
   <!-- 最後 -->
@@ -485,7 +553,7 @@ details.ch[open] .ch-mk::after{transform:rotate(90deg);opacity:0;}
 
   <div class="footer">
     <div class="fa">傑森所長 @jasonxtsai</div>
-    <div class="fc">Instagram：@jasonxtsai　／　Threads：@jasonxtsai<br>※ 文中案例為個人經驗與匿名個案，數字為概估，不代表每個人都能有相同結果</div>
+    <div class="fc">Instagram：@jasonxtsai　／　Threads：@jasonxtsai<br>※ 文中帳號數字為個人經驗，不代表每個人都能有相同結果</div>
   </div>
 
 </div>
@@ -524,10 +592,9 @@ setTimeout(function(){
 落地頁設定備註（不顯示，給操盤手）
 ═══════════════════════════════════════════
 · 用途：「你勸了他很多年」7張輪播（CTA：留言「習慣」）的 DM 承接頁／軟性導流 Skool
-· 結構（子龍 10-01 定，嚴格照順序）：① 自我介紹（hero＋author-card）② 給答案（速查表＋7張摺疊卡＋7天清單）③ 我們的特色（三工具卡＋3個案例）④ 結論＋Skool CTA。四段中間不插其他段落（已拿掉「開始之前」和中段 CTA）
+· 結構（子龍 10-01 定，嚴格照順序）：① 自我介紹（hero＋author-card）② 給答案（速查表＋7張摺疊卡＋7天清單）③ 我們的特色（三工具卡；案例段 10-01 依 Jason 回饋整段刪除）④ 結論＋Skool CTA。四段中間不插其他段落（已拿掉「開始之前」和中段 CTA）
 · 版型：完全沿用 2026-08-06-chatgpt-setup.html 的 CSS（米色 #F4F1EA＋金橘 #D4902A），沒有新增樣式
 · 語氣：照 Jason 10-01 親改用字（放軟、不怪對方、用「我現在怎麼做」、數字跟中文不空格）
-· 案例來源：Jason_D11_訪談結果.json；人類圖學員、心理測驗皆匿名＋概估；心理測驗成交額註明是朋友社群營收
 · Skool CTA：固定的 .side-cta／.top-cta，加上第4段 .cta → https://www.skool.com/d11-lab/about（無 ref）
 · 不做 localStorage，頁面明講關掉就沒了
 · 命名：日期前綴（2026-10-01-7-habits.html）

@@ -209,9 +209,13 @@ details.ch[open] .ch-mk::after{transform:rotate(90deg);opacity:0;}
 .footer .fa{font-style:italic;font-size:14px;color:var(--gold);font-weight:700;}
 .footer .fc{font-size:11px;color:var(--faint);margin-top:8px;letter-spacing:0.05em;line-height:1.7;}
 
-@media(max-width:680px){
+/* 右側浮動卡只在 1120px 以上出現；比它窄的手機、平板都改用固定在最上方的加入列 */
+@media(max-width:1119px){
   .top-cta{display:block;position:fixed;top:0;left:0;right:0;z-index:40;box-shadow:0 2px 12px rgba(0,0,0,0.12);}
   body{padding-top:42px;}
+  .prog{top:50px;}
+}
+@media(max-width:680px){
   .hero{padding-top:48px;}
   .hero h1{font-size:28px;}
   .sec h2{font-size:21px;}

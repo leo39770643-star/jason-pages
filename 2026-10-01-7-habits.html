@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7個會累積的習慣｜傑森所長</title>
+<meta name="description" content="不用一直等別人改，先把自己的事一件一件做起來。7個會累積的習慣＋7天打勾清單。">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#D4902A; --gold-bright:#E8A94A; --gold-dim:rgba(212,144,42,0.30);
+  --bg:#F4F1EA; --bg2:#FBF8F2; --card:#FFFFFF; --card2:#FAF6EE;
+  --code:#12161f; --code-tx:#e6eaf2;
+  --text:#2c2a26; --dim:#6d6a62; --faint:#a8a39a;
+  --line:rgba(0,0,0,0.12);
+  --ok:#4a7c3f; --ok-bg:rgba(74,124,63,0.07); --ok-line:rgba(74,124,63,0.25);
+  --no:#b1431f; --no-bg:rgba(200,70,40,0.06); --no-line:rgba(200,70,40,0.22);
+  --r-md:16px; --r-lg:22px; --pill:50px;
+  --bounce:400ms cubic-bezier(0.34,1.56,0.64,1);
+  --serif:"Noto Serif TC",serif; --sans:"Noto Sans TC","Inter",sans-serif; --mono:"JetBrains Mono",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--sans);color:var(--text);line-height:1.85;overflow-x:hidden;
+  background:var(--bg);
+  background-image:radial-gradient(118% 54% at 50% 0%, rgba(212,144,42,0.16) 0%, rgba(212,144,42,0.05) 34%, rgba(244,241,234,0) 62%);
+  background-attachment:fixed;}
+.glow{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.g1{position:absolute;width:min(60vw,680px);height:min(60vw,680px);border-radius:50%;background:radial-gradient(circle, rgba(212,144,42,0.13), rgba(212,144,42,0));top:-18%;right:-14%;filter:blur(20px);}
+.g2{position:absolute;width:min(50vw,560px);height:min(50vw,560px);border-radius:50%;background:radial-gradient(circle, rgba(212,178,120,0.12), rgba(212,178,120,0));bottom:-14%;left:-12%;filter:blur(22px);}
+.wrap{max-width:720px;margin:0 auto;position:relative;min-height:100vh;}
+.js .fade{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
+.fade.vis{opacity:1;transform:translateY(0);}
+a{color:var(--gold);text-decoration:none;word-break:break-all;}
+
+.top-cta{display:none;}
+.top-cta a{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:#1a1406;font-weight:800;font-size:13.5px;padding:11px 16px;text-align:center;letter-spacing:0.02em;}
+.top-cta .tc-em{font-weight:900;}
+
+.side-cta{display:none;}
+@media(min-width:1120px){
+  .side-cta{display:block;position:fixed;top:130px;right:max(24px,calc((100vw - 720px)/2 - 268px));width:236px;z-index:30;background:linear-gradient(165deg,var(--card) 0%,var(--card2) 100%);border:1px solid var(--gold-dim);border-left:3px solid var(--gold);border-radius:var(--r-md);padding:20px 20px 22px;box-shadow:0 10px 34px rgba(120,90,30,0.13);}
+  .side-cta .sk-k{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;color:var(--gold);margin-bottom:10px;font-weight:500;}
+  .side-cta h4{font-family:var(--serif);font-weight:900;font-size:17px;line-height:1.5;color:#2a2620;margin-bottom:9px;}
+  .side-cta h4 .g{color:var(--gold);}
+  .side-cta p{font-size:12.5px;color:var(--dim);line-height:1.7;margin-bottom:16px;}
+  .side-cta a{display:block;text-align:center;background:var(--gold);color:#1a1406;font-weight:900;font-size:14px;padding:12px 14px;border-radius:var(--pill);box-shadow:0 6px 18px rgba(212,144,42,0.26);transition:transform var(--bounce);}
+  .side-cta a:hover{transform:translateY(-2px);}
+}
+
+.hero{position:relative;z-index:1;padding:64px 30px 40px;}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:0.2em;color:var(--gold);margin-bottom:22px;font-weight:500;}
+.hero h1{font-family:var(--serif);font-weight:900;font-size:36px;line-height:1.36;margin-bottom:16px;color:#2a2620;}
+.hero h1 .g{color:var(--gold);}
+.hero .h-sub{font-family:var(--serif);font-weight:700;font-size:15px;color:var(--gold);margin-bottom:16px;}
+.hero-sub{font-size:15px;color:var(--dim);line-height:1.85;margin-bottom:26px;}
+.divider{width:46px;height:3px;background:var(--gold);margin-bottom:26px;}
+.stats{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.stat{text-align:center;}
+.stat .n{font-family:"Inter";font-weight:800;font-size:30px;color:var(--gold);line-height:1;}
+.stat .l{font-size:11px;color:var(--dim);margin-top:6px;letter-spacing:0.04em;}
+.stat-op{font-size:20px;color:var(--faint);font-weight:300;}
+.author-card{margin-top:28px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:var(--r-md);padding:16px 20px;position:relative;z-index:1;}
+.author-card .a{font-weight:700;color:var(--gold);font-size:15px;}
+.author-card .b{font-size:13px;color:var(--dim);margin-top:5px;line-height:1.75;}
+
+.sec{position:relative;z-index:1;padding:38px 30px;border-top:1px solid var(--line);}
+.sec-tag{display:inline-block;background:rgba(212,144,42,0.14);color:var(--gold);font-size:12px;font-weight:700;padding:5px 15px;border:1px solid var(--gold-dim);border-radius:var(--pill);margin-bottom:16px;letter-spacing:0.05em;}
+.sec h2{font-family:var(--serif);font-weight:900;font-size:24px;line-height:1.42;margin-bottom:14px;color:#2a2620;}
+.sec h2 .g{color:var(--gold);}
+.sec>p{font-size:15px;color:var(--text);line-height:1.9;margin-bottom:14px;}
+.sec>p .hl{color:var(--gold);font-weight:500;}
+.sub-h{font-family:var(--serif);font-weight:700;font-size:15.5px;color:var(--gold);margin:20px 0 8px;}
+
+.insight{background:var(--card2);border:1px solid var(--gold-dim);border-radius:var(--r-lg);padding:20px 22px;margin:18px 0;}
+.insight .il{font-size:12px;font-weight:700;color:var(--gold);letter-spacing:0.06em;margin-bottom:9px;}
+.insight .it{font-family:var(--serif);font-size:16px;font-weight:700;line-height:1.7;color:#2a2620;}
+
+.tipline{font-size:13.5px;color:var(--dim);line-height:1.75;border-left:2px solid var(--gold-dim);padding-left:14px;margin:13px 0 2px;}
+.tipline b{color:var(--gold);}
+.warn{background:var(--no-bg);border:1px solid var(--no-line);border-radius:12px;padding:12px 15px;margin:13px 0 2px;font-size:13.3px;line-height:1.7;color:#7a3320;}
+.warn b{color:var(--no);}
+
+.tblwrap{overflow-x:auto;margin:12px 0 4px;border:1px solid var(--line);border-radius:var(--r-md);}
+.tbl{width:100%;border-collapse:collapse;font-size:13px;min-width:460px;}
+.tbl th{background:rgba(212,144,42,0.12);color:var(--gold);font-weight:700;text-align:left;padding:10px 13px;border-bottom:2px solid var(--gold-dim);white-space:nowrap;}
+.tbl td{padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--text);line-height:1.6;}
+.tbl td:first-child{font-weight:700;color:#2a2620;}
+.tbl tr:last-child td{border-bottom:none;}
+
+.mode3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0 6px;}
+.mode3 .m{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:var(--r-md);padding:16px 14px;text-align:center;}
+.mode3 .m .mn{font-family:"Inter";font-weight:800;font-size:17px;color:var(--gold);}
+.mode3 .m .mw{font-size:12.5px;color:var(--dim);margin-top:5px;line-height:1.6;}
+.mode3 .m .mq{font-family:var(--serif);font-weight:700;font-size:14px;color:#2a2620;margin-top:9px;padding-top:9px;border-top:1px solid var(--line);}
+@media(max-width:560px){.mode3{grid-template-columns:1fr;}}
+
+.bul{margin:8px 0 2px;}
+.bul li{list-style:none;position:relative;padding-left:20px;font-size:14px;line-height:1.74;color:var(--text);margin-bottom:8px;}
+.bul li::before{content:"\2726";position:absolute;left:0;color:var(--gold);}
+.bul li b{color:var(--gold);}
+
+.steps{margin:12px 0 4px;counter-reset:s;}
+.steps .st{display:flex;gap:11px;margin-bottom:11px;font-size:14px;line-height:1.72;color:var(--text);}
+.steps .st::before{counter-increment:s;content:counter(s);flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--gold);color:#1a1406;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+.steps .st b{color:var(--gold);}
+
+.acc{display:flex;flex-direction:column;gap:10px;}
+details.ch{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;}
+details.ch[open]{border-color:var(--gold-dim);box-shadow:0 4px 18px rgba(120,90,30,0.07);}
+details.ch summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:16px 18px;user-select:none;}
+details.ch summary::-webkit-details-marker{display:none;}
+.ch-n{flex-shrink:0;min-width:34px;height:30px;padding:0 9px;border-radius:8px;background:rgba(212,144,42,0.14);border:1px solid var(--gold-dim);color:var(--gold);font-family:var(--mono);font-weight:500;font-size:12px;display:flex;align-items:center;justify-content:center;}
+.ch-t{flex:1;font-weight:700;font-size:14.5px;color:var(--text);line-height:1.4;}
+.ch-t .en{font-weight:400;color:var(--dim);font-size:12.5px;}
+.ch-mk{flex-shrink:0;width:22px;height:22px;position:relative;}
+.ch-mk::before,.ch-mk::after{content:"";position:absolute;background:var(--gold);border-radius:2px;transition:transform .25s ease;}
+.ch-mk::before{top:10px;left:4px;width:14px;height:2px;}
+.ch-mk::after{top:4px;left:10px;width:2px;height:14px;}
+details.ch[open] .ch-mk::after{transform:rotate(90deg);opacity:0;}
+.ch-body{padding:6px 18px 18px;border-top:1px solid var(--line);}
+.ch-body p{font-size:14px;line-height:1.82;color:var(--text);margin:10px 0;}
+.blk-h{font-size:11.5px;font-weight:700;color:var(--gold);letter-spacing:0.06em;margin:16px 0 6px;}
+.pos{background:rgba(212,144,42,0.08);border:1px solid var(--gold-dim);border-radius:12px;padding:11px 14px;margin:10px 0 2px;font-size:13.6px;line-height:1.72;color:var(--text);}
+.pos b{color:var(--gold);}
+.links-row{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 4px;}
+.links-row a{font-family:var(--mono);font-size:11px;color:var(--gold);background:var(--card2);border:1px solid var(--gold-dim);border-radius:50px;padding:3px 11px;}
+
+.pnum{display:flex;align-items:baseline;gap:9px;margin:22px 0 6px;padding-top:16px;border-top:1px dashed var(--line);}
+.pnum:first-of-type{border-top:none;padding-top:4px;margin-top:8px;}
+.pnum .pn{font-family:"Inter";font-weight:800;font-size:14px;color:var(--gold);flex-shrink:0;}
+.pnum .pt{font-family:var(--serif);font-weight:700;font-size:15.5px;color:#2a2620;line-height:1.4;}
+
+.cp{background:var(--code);border:1px solid var(--gold-dim);border-radius:var(--r-md);padding:16px 16px;margin:10px 0 2px;position:relative;}
+.cp .pl{font-family:var(--mono);font-size:10.5px;letter-spacing:0.08em;color:var(--gold-bright);margin-bottom:11px;max-width:calc(100% - 90px);}
+.cp pre{font-family:var(--mono);font-size:12px;line-height:1.85;color:var(--code-tx);white-space:pre-wrap;word-break:break-word;}
+.cp .cm{color:#8a94a6;}
+.cp .ph{color:var(--gold-bright);}
+.copy-btn{position:absolute;top:11px;right:11px;background:rgba(212,144,42,0.16);border:1px solid var(--gold);color:var(--gold-bright);font-family:var(--sans);font-size:10.5px;font-weight:700;padding:5px 12px;border-radius:50px;cursor:pointer;transition:all .2s;letter-spacing:0.03em;z-index:2;}
+.copy-btn:hover{background:var(--gold);color:#1a1406;}
+.copy-btn.done{background:var(--gold);color:#1a1406;}
+.hero-cp{border:2px solid var(--gold);box-shadow:0 10px 34px rgba(120,90,30,0.16);}
+.hero-cp .copy-btn{font-size:12px;padding:7px 16px;background:var(--gold);color:#1a1406;}
+
+.judge{border-radius:12px;padding:11px 14px;margin:7px 0;font-size:13.6px;line-height:1.72;}
+.judge.no{background:var(--no-bg);border:1px solid var(--no-line);color:#7a3320;}
+.judge.ok{background:var(--ok-bg);border:1px solid var(--ok-line);color:#2f5228;}
+.judge .jl{font-weight:700;font-size:11.5px;letter-spacing:0.05em;display:block;margin-bottom:4px;}
+.judge.no .jl{color:var(--no);}
+.judge.ok .jl{color:var(--ok);}
+
+.faq{margin:6px 0;}
+.faq .q{font-family:var(--serif);font-weight:700;font-size:15.5px;color:#2a2620;margin:20px 0 8px;}
+.faq .q::before{content:"Q";color:var(--gold);font-family:"Inter";font-weight:800;margin-right:8px;}
+.faq .a{font-size:14px;color:var(--text);line-height:1.85;}
+
+/* 7 天清單 */
+.day{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:var(--r-md);padding:16px 18px;margin:10px 0;}
+.day .dh{font-family:var(--serif);font-weight:900;font-size:16px;color:#2a2620;margin-bottom:8px;}
+.day .dh span{color:var(--gold);font-family:"Inter";margin-right:8px;}
+.ck{display:flex;gap:11px;align-items:flex-start;padding:7px 0;cursor:pointer;}
+.ck input{appearance:none;-webkit-appearance:none;flex-shrink:0;width:19px;height:19px;margin-top:3px;border:2px solid var(--gold-dim);border-radius:5px;background:var(--bg2);cursor:pointer;position:relative;transition:all .18s;}
+.ck input:hover{border-color:var(--gold);}
+.ck input:checked{background:var(--gold);border-color:var(--gold);}
+.ck input:checked::after{content:"";position:absolute;left:5px;top:1px;width:5px;height:10px;border:solid #1a1406;border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+.ck span{font-size:14px;line-height:1.7;color:var(--text);}
+.ck input:checked + span{color:var(--faint);text-decoration:line-through;}
+.prog{position:sticky;top:10px;z-index:20;background:linear-gradient(160deg,#15110b 0%,#241a0e 100%);border:1px solid var(--gold-dim);border-radius:var(--pill);padding:11px 22px;margin:16px 0;display:flex;align-items:center;justify-content:space-between;gap:14px;}
+.prog .pt2{font-size:13px;color:rgba(255,255,255,0.72);font-weight:700;}
+.prog .pv{font-family:"Inter";font-weight:800;font-size:18px;color:var(--gold-bright);}
+.prog .bar{flex:1;height:6px;background:rgba(255,255,255,0.14);border-radius:50px;overflow:hidden;}
+.prog .bar i{display:block;height:100%;width:0;background:var(--gold);border-radius:50px;transition:width .3s;}
+
+.mid-cta{position:relative;z-index:1;margin:0 30px;padding:30px 0;}
+.mid-card{background:linear-gradient(160deg,#15110b 0%,#241a0e 100%);border:1px solid var(--gold-dim);border-radius:var(--r-lg);padding:28px 26px;text-align:center;}
+.mid-card .mk{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;color:var(--gold-bright);margin-bottom:12px;font-weight:500;}
+.mid-card h3{font-family:var(--serif);font-weight:900;font-size:21px;line-height:1.5;color:#fff;margin-bottom:10px;}
+.mid-card h3 .g{color:var(--gold-bright);}
+.mid-card p{font-size:13.5px;color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:20px;}
+.mid-card .skbtn{font-size:16px;padding:14px 38px;}
+
+.cta{position:relative;z-index:1;padding:46px 30px 54px;border-top:3px solid var(--gold-dim);}
+.cta-card{background:linear-gradient(160deg, var(--card) 0%, var(--card2) 100%);border:1px solid var(--gold-dim);border-radius:var(--r-lg);padding:32px 26px;}
+.cta-kicker{font-family:var(--mono);font-size:11px;letter-spacing:0.2em;color:var(--gold);margin-bottom:14px;font-weight:500;}
+.cta-card h2{font-family:var(--serif);font-weight:900;font-size:24px;line-height:1.45;margin-bottom:10px;color:#2a2620;}
+.cta-card h2 .g{color:var(--gold);}
+.cta-lead{font-size:14.5px;color:var(--dim);line-height:1.85;margin-bottom:22px;}
+.fit{margin:18px 0;}
+.fit .f{display:flex;gap:10px;font-size:14px;line-height:1.7;margin-bottom:10px;color:var(--text);}
+.fit .f::before{content:"\2714";color:var(--gold);font-weight:700;flex-shrink:0;}
+.gives{background:rgba(212,144,42,0.07);border:1px solid var(--line);border-radius:var(--r-md);padding:18px 20px;margin:20px 0;}
+.gives .gt{font-size:12px;font-weight:700;color:var(--gold);letter-spacing:0.05em;margin-bottom:12px;}
+.gives .gi{font-size:14px;line-height:1.75;margin-bottom:9px;padding-left:20px;position:relative;color:var(--text);}
+.gives .gi::before{content:"\2726";color:var(--gold);position:absolute;left:0;}
+.btn-wrap{text-align:center;margin-top:26px;}
+.skbtn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#1a1406;border-radius:var(--pill);padding:17px 46px;font-weight:900;font-size:18px;box-shadow:0 8px 28px rgba(212,144,42,0.28);transition:transform var(--bounce),box-shadow var(--bounce);position:relative;overflow:hidden;cursor:pointer;text-decoration:none;}
+.skbtn:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(212,144,42,0.40);}
+.skbtn::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.45),transparent);transform:skewX(-25deg);animation:shine 3.4s ease-in-out infinite;}
+@keyframes shine{0%{left:-100%;}22%{left:160%;}100%{left:160%;}}
+.btn-note{margin-top:14px;font-size:12.5px;color:var(--dim);text-align:center;}
+
+.footer{position:relative;z-index:1;padding:24px 30px 46px;text-align:center;}
+.footer .fa{font-style:italic;font-size:14px;color:var(--gold);font-weight:700;}
+.footer .fc{font-size:11px;color:var(--faint);margin-top:8px;letter-spacing:0.05em;line-height:1.7;}
+
+@media(max-width:680px){
+  .top-cta{display:block;position:fixed;top:0;left:0;right:0;z-index:40;box-shadow:0 2px 12px rgba(0,0,0,0.12);}
+  body{padding-top:42px;}
+  .hero{padding-top:48px;}
+  .hero h1{font-size:28px;}
+  .sec h2{font-size:21px;}
+  .prog{top:50px;}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.className+=' js';</script>
+<div class="glow"><div class="g1"></div><div class="g2"></div></div>
+
+<div class="top-cta">
+  <a href="https://www.skool.com/d11-lab/about" id="skool-top" target="_blank" rel="noopener">
+    <span>想找人一起做 →</span><span class="tc-em">加入 奇點研究所 × D11</span>
+  </a>
+</div>
+
+<aside class="side-cta">
+  <div class="sk-k">NEXT STEP</div>
+  <h4>先把自己顧好<br><span class="g">再找人一起走</span></h4>
+  <p>重複的內容工作交給 AI，旁邊有一群也在動的人。這兩件事，我們在 Skool 一起做。</p>
+  <a href="https://www.skool.com/d11-lab/about" id="skool-side" target="_blank" rel="noopener">加入 奇點研究所 × D11</a>
+</aside>
+
+<div class="wrap">
+
+  <!-- 1. 自介 -->
+  <div class="hero">
+    <div class="kicker">HABITS · 給想先把自己顧好的人</div>
+    <h1>7個<br><span class="g">會累積的習慣</span></h1>
+    <div class="h-sub">不用一直等別人改　先把自己的事一件一件做起來</div>
+    <div class="hero-sub">你留言「習慣」，這份就是我要傳給你的。7個都很小，一天加一個就好。最後附一份7天打勾清單，做完一項勾一項，第七天回頭看，你會知道自己有在動。</div>
+    <div class="divider"></div>
+    <div class="stats">
+      <div class="stat"><div class="n">7</div><div class="l">個 · 會累積的習慣</div></div>
+      <div class="stat-op">·</div>
+      <div class="stat"><div class="n">1</div><div class="l">天 · 只加一個</div></div>
+      <div class="stat-op">·</div>
+      <div class="stat"><div class="n">7</div><div class="l">天 · 打勾清單</div></div>
+    </div>
+    <div class="author-card"><div class="a">傑森所長 @jasonxtsai</div><div class="b">奇點學院 × D11 創辦人。我都說我們是拍影片的：2024年開了 D11，幫店家和品牌做短影音。今年開始把公司的流程大量 AI 化，自己的帳號大概三個月從3,000多做到六萬多。下面這7個習慣，是我自己現在還在練的。</div></div>
+  </div>
+
+  <!-- 開始之前 -->
+  <div class="sec fade">
+    <span class="sec-tag">開始之前</span>
+    <h2>三件事<br><span class="g">先講在前面</span></h2>
+    <div class="steps">
+      <div class="st"><b>不用7個一次做完。</b>一次改太多，通常三天就停了。一天加一個，做不到就改小一點，再做。</div>
+      <div class="st"><b>這份是給你自己用的。</b>不是拿去要求身邊的人。他想改，自己會開始動。</div>
+      <div class="st"><b>看行動，不看感覺。</b>有沒有做，打勾就知道。最後的7天清單就是拿來做這件事的。</div>
+    </div>
+  </div>
+
+  <!-- 2. 直接給答案：速查 -->
+  <div class="sec fade">
+    <span class="sec-tag">先給答案 · 7個習慣</span>
+    <h2>趕時間的話<br><span class="g">看這張就好</span></h2>
+    <div class="tblwrap"><table class="tbl"><thead><tr><th>#</th><th>習慣</th><th>今天就能做的第一步</th></tr></thead><tbody>
+      <tr><td>1</td><td>答應的事，先做到一件小的</td><td>只答應自己一件10分鐘做得完的事</td></tr>
+      <tr><td>2</td><td>想做的事，先做一個很小的版本</td><td>把想很久的那件事，做出60分的版本</td></tr>
+      <tr><td>3</td><td>每天留一段時間給自己的事</td><td>行事曆先排30分鐘，這段時間不回訊息</td></tr>
+      <tr><td>4</td><td>把做過的事記下來</td><td>睡前寫一行：今天做了什麼</td></tr>
+      <tr><td>5</td><td>看別人的行動，也看自己的</td><td>挑一件你常說要做的事，這週做一個動作</td></tr>
+      <tr><td>6</td><td>重複的事，交給流程和工具</td><td>列出這週做了三次以上的事，挑一件寫成步驟</td></tr>
+      <tr><td>7</td><td>待在正在動的人旁邊</td><td>找一個也在做的人，約好互相看進度</td></tr>
+    </tbody></table></div>
+    <div class="tipline">下面每一個都可以點開，有<b>為什麼會累積</b>跟<b>怎麼開始</b>。</div>
+  </div>
+
+  <!-- 2. 直接給答案：7 張摺疊卡 -->
+  <div class="sec fade">
+    <span class="sec-tag">7個習慣 · 一個一個看</span>
+    <h2>每一個都很小<br><span class="g">但會一直疊上去</span></h2>
+
+    <div class="acc">
+
+      <details class="ch" open><summary><span class="ch-n">1</span><span class="ch-t">答應的事，先做到一件小的<span class="en"> · 信任是一點一點存的</span></span><span class="ch-mk"></span></summary>
+      <div class="ch-body">
+        <p>我現在看一個人，會先看他答應的事情有沒有做到。後來發現，對自己也是一樣。</p>
+        <div class="pos"><b>為什麼會累積：</b>你對自己說到做到幾次，就會越相信自己做得到。這個信任，是一次一次存起來的。</div>
+        <div class="blk-h">怎麼開始</div>
+        <div class="steps">
+          <div class="st">今天只答應自己<b>一件</b>10分鐘做得完的事</div>
+          <div class="st">做完，到下面的7天清單打勾</div>
+          <div class="st">做不到也沒關係，把它<b>改小</b>，明天再做</div>
+        </div>
+      </div></details>
+
+      <details class="ch"><summary><span class="ch-n">2</span><span class="ch-t">想做的事，先做一個很小的版本<span class="en"> · 做了才知道長怎樣</span></span><span class="ch-mk"></span></summary>
+      <div class="ch-body">
+        <p>說想做自媒體，一支影片都沒發。這種狀況我看過很多次，我自己以前也有。</p>
+        <div class="insight"><div class="il">我常跟身邊的人講</div><div class="it">就趕快開始吧，你沒有開始，你都不會知道是長怎樣。</div></div>
+        <div class="pos"><b>為什麼會累積：</b>第一個版本做出來，你才有東西可以改。一直在腦袋裡想，就一直是零。</div>
+        <div class="blk-h">怎麼開始</div>
+        <ul class="bul">
+          <li>想做影片：先拍一支60秒的，發出去</li>
+          <li>想寫東西：先寫一篇三段的貼文</li>
+          <li>想學新工具：先用它做一件很小的事，不要一次全部學完</li>
+        </ul>
+      </div></details>
+
+      <details class="ch"><summary><span class="ch-n">3</span><span class="ch-t">每天留一段時間給自己的事<span class="en"> · 不用等處理完別人才輪到你</span></span><span class="ch-mk"></span></summary>
+      <div class="ch-body">
+        <p>以前我很常幫別人想辦法、追別人進度、替別人著急。一天下來，最累的是我，自己的事反而沒動。</p>
+        <div class="pos"><b>為什麼會累積：</b>每天30分鐘，一年下來就是180個小時。這段時間花在自己身上，會一直留著。</div>
+        <div class="blk-h">怎麼開始</div>
+        <div class="steps">
+          <div class="st">在行事曆上<b>先排</b>30分鐘給自己的事：學東西、做內容、運動都可以</div>
+          <div class="st">這段時間先不回訊息</div>
+          <div class="st">別人的事，排在這段之後</div>
+        </div>
+      </div></details>
+
+      <details class="ch"><summary><span class="ch-n">4</span><span class="ch-t">把做過的事記下來<span class="en"> · 回頭看才知道自己有在動</span></span><span class="ch-mk"></span></summary>
+      <div class="ch-body">
+        <p>我花了好幾年等別人改。結果回頭看：他沒變，我自己也卡在原地。那時候如果有記下來，應該會早一點發現。</p>
+        <div class="pos"><b>為什麼會累積：</b>記下來的東西，回頭看得到。一週、一個月之後，你會很清楚自己是往前了，還是在原地。</div>
+        <div class="blk-h">怎麼開始</div>
+        <div class="steps">
+          <div class="st">睡前寫<b>一行</b>：今天做了什麼。手機備忘錄就可以</div>
+          <div class="st">每週日花5分鐘，把這7行看一遍</div>
+          <div class="st">看完問自己：下週要多做哪一件、少做哪一件</div>
+        </div>
+      </div></details>
+
+      <details class="ch"><summary><span class="ch-n">5</span><span class="ch-t">看別人的行動，也看自己的<span class="en"> · 行事曆不太會騙人</span></span><span class="ch-mk"></span></summary>
+      <div class="ch-body">
+        <p>一個人有沒有真的想改，看行動就知道。我後來發現，這句話拿來看自己，有時候更有用。</p>
+        <div class="judge no"><span class="jl">只有說</span>說要存錢，薪水進來先花。說要換工作，履歷一年沒打開。說想做自媒體，一支影片都沒發。</div>
+        <div class="judge ok"><span class="jl">開始動</span>薪水進來，先轉一筆到另一個帳戶。這週把履歷打開，改一段。這週先發一支，不管好不好。</div>
+        <div class="pos"><b>為什麼會累積：</b>每一個小動作都是證據。證據越多，你越不用靠「感覺」判斷自己有沒有在做。</div>
+        <div class="blk-h">怎麼開始</div>
+        <div class="steps">
+          <div class="st">挑一件你最常說「我要做」的事</div>
+          <div class="st">這週只做<b>一個</b>看得到的動作</div>
+        </div>
+      </div></details>
+
+      <details class="ch"><summary><span class="ch-n">6</span><span class="ch-t">重複的事，交給流程和工具<span class="en"> · 省下來的時間才會累積</span></span><span class="ch-mk"></span></summary>
+      <div class="ch-body">
+        <p>今年我們公司做了一件事：把原本靠人工的流程寫成步驟，再一步一步交給 AI。現在我自己一天可以產出兩三篇內容，以前一天做一篇，大部分時間就沒了。</p>
+        <div class="pos"><b>為什麼會累積：</b>寫成步驟的事，下次就不用再想一次。工具每多接手一件，你每天就多一點時間做習慣3的事。</div>
+        <div class="blk-h">怎麼開始</div>
+        <div class="steps">
+          <div class="st">列出這週你<b>做了三次以上</b>的事</div>
+          <div class="st">挑一件，寫成1、2、3的步驟</div>
+          <div class="st">看哪一步可以交給 AI 或現成的工具</div>
+        </div>
+        <div class="tipline">AI 工具我會建議<b>先拿來解決一件具體的事</b>。一次想整合太多，通常只會更亂。</div>
+      </div></details>
+
+      <details class="ch"><summary><span class="ch-n">7</span><span class="ch-t">待在正在動的人旁邊<span class="en"> · 不用說服誰，一起做就好</span></span><span class="ch-mk"></span></summary>
+      <div class="ch-body">
+        <p>真的想做的人，其實不用一直催，他自己就會開始。所以我現在會先看：這個人平常怎麼做事？答應的事情有沒有做到？再決定要不要繼續一起走。</p>
+        <div class="pos"><b>為什麼會累積：</b>身邊的人都在動，你會比較容易動。你做了什麼，也有人看得到、會回你。</div>
+        <div class="blk-h">怎麼開始</div>
+        <div class="steps">
+          <div class="st">找一個跟你一樣<b>正在做</b>的人，不一定要很熟</div>
+          <div class="st">約好每週互相看一次進度</div>
+          <div class="st">你可以提醒、可以陪，但最後那一步，還是要他自己走。對你自己也一樣</div>
+        </div>
+      </div></details>
+
+    </div>
+  </div>
+
+  <!-- 中段 CTA -->
+  <div class="mid-cta fade">
+    <div class="mid-card">
+      <div class="mk">習慣 6 ＋ 習慣 7</div>
+      <h3>重複的事交給工具<br><span class="g">旁邊有人一起動</span></h3>
+      <p>這兩個習慣，一個人做比較慢。我們把自己在用的 AI 內容工具放進 Skool，也有一群正在做的人在裡面。</p>
+      <a class="skbtn" href="https://www.skool.com/d11-lab/about" id="skool-mid" target="_blank" rel="noopener">加入 奇點研究所 × D11 →</a>
+    </div>
+  </div>
+
+  <!-- 3. 我們在做什麼 -->
+  <div class="sec fade">
+    <span class="sec-tag">我們現在在做的事</span>
+    <h2>用 AI 做內容<br><span class="g">把時間留給自己</span></h2>
+    <p>習慣6講的「交給流程和工具」，就是我們每天在做的事。團隊大部分是做企劃、拍攝、剪輯、貼文的人，今年開始把這些工作一步一步交給 AI，再把用得順的整理成工具。</p>
+
+    <div class="mode3">
+      <div class="m"><div class="mn">剪輯台</div><div class="mw">初剪、上字幕、上特效</div><div class="mq">給它腳本，它先剪一版</div></div>
+      <div class="m"><div class="mn">輪播貼文</div><div class="mw">選題、文案、版面</div><div class="mq">照你的語氣寫，有設計</div></div>
+      <div class="m"><div class="mn">Threads</div><div class="mw">每天要發什麼</div><div class="mq">寫出你的觀點跟專業</div></div>
+    </div>
+    <div class="tipline">這三個工具，都放在奇點研究所裡，有教學可以照著做。</div>
+  </div>
+
+  <!-- 3. 案例 -->
+  <div class="sec fade">
+    <span class="sec-tag">實際的例子</span>
+    <h2>我們自己<br><span class="g">跟身邊的人做過的</span></h2>
+
+    <div class="pnum"><span class="pn">01</span><span class="pt">我自己的帳號</span></div>
+    <p>以前影片拍得不錯，也有流量，粉絲就是一直起不來。去年底開始做輪播貼文、今年投入 AI 加自媒體，大概三個月從3,000多做到六萬多，其實蠻意外的。坦白說，變現的部分現在還是普通，這也是我們正在努力的。</p>
+
+    <div class="pnum"><span class="pn">02</span><span class="pt">一位教人類圖的學員</span></div>
+    <p>他的影片一開頭就講專有名詞，一般人聽不懂。我建議他先從觀眾的困擾講起，講到一半再把人類圖帶回來。他試了一兩支，觀看從幾百變成大約三千到五千。</p>
+    <div class="insight"><div class="il">那時候跟他講的</div><div class="it">你的專業，不要太早拿出來。</div></div>
+
+    <div class="pnum"><span class="pn">03</span><span class="pt">幾分鐘做好的心理測驗網頁</span></div>
+    <p>我不會做網頁，現在靠 AI 做得出來。我們用 AI 幾分鐘做了一個心理測驗網頁，放在我老婆的帳號，導流到朋友的小社群。8月大概帶了15到20筆訂單，成交額四萬多，那是朋友社群的營收。</p>
+
+    <div class="warn">⚠️ <b>這些都是個案。</b>每個人的帳號、產業、投入的時間都不一樣，我們不保證流量、粉絲或收入。能保證的是：這些都是我們實際做過的。</div>
+  </div>
+
+  <!-- 最後 -->
+  <div class="sec fade">
+    <span class="sec-tag">最後</span>
+    <h2>不用一直改變誰<br><span class="g">先把自己顧好</span></h2>
+    <p>這7個習慣，第一天做都會覺得太小，好像沒什麼用。可是它們會一直疊上去，一週、一個月之後，你會看到差別。</p>
+    <div class="insight"><div class="il">只想先做一個的話</div><div class="it">做習慣1。今天只答應自己一件10分鐘的事，然後做到。</div></div>
+  </div>
+
+  <!-- 7天清單 -->
+  <div class="sec fade">
+    <span class="sec-tag">7天打勾清單</span>
+    <h2>一天加一個<br><span class="g">第七天回頭看</span></h2>
+
+    <div class="prog"><span class="pt2">完成度</span><span class="bar"><i id="bar"></i></span><span class="pv"><span id="done">0</span> / <span id="all">0</span></span></div>
+
+    <div class="day">
+      <div class="dh"><span>Day 1</span>說到做到</div>
+      <label class="ck"><input type="checkbox"><span>答應自己一件10分鐘做得完的事</span></label>
+      <label class="ck"><input type="checkbox"><span>做到了</span></label>
+    </div>
+    <div class="day">
+      <div class="dh"><span>Day 2</span>先做小版本</div>
+      <label class="ck"><input type="checkbox"><span>選一件想很久、還沒開始的事</span></label>
+      <label class="ck"><input type="checkbox"><span>做出60分的第一個版本</span></label>
+    </div>
+    <div class="day">
+      <div class="dh"><span>Day 3</span>留時間給自己</div>
+      <label class="ck"><input type="checkbox"><span>在行事曆排好30分鐘</span></label>
+      <label class="ck"><input type="checkbox"><span>這30分鐘沒有回訊息</span></label>
+    </div>
+    <div class="day">
+      <div class="dh"><span>Day 4</span>記下來</div>
+      <label class="ck"><input type="checkbox"><span>開一個備忘錄，名字叫「今天做了什麼」</span></label>
+      <label class="ck"><input type="checkbox"><span>睡前寫第一行（之後每天寫）</span></label>
+    </div>
+    <div class="day">
+      <div class="dh"><span>Day 5</span>看自己的行動</div>
+      <label class="ck"><input type="checkbox"><span>寫下一件你常說「我要做」的事</span></label>
+      <label class="ck"><input type="checkbox"><span>做一個看得到的動作</span></label>
+    </div>
+    <div class="day">
+      <div class="dh"><span>Day 6</span>交給流程和工具</div>
+      <label class="ck"><input type="checkbox"><span>列出這週做了三次以上的事</span></label>
+      <label class="ck"><input type="checkbox"><span>挑一件寫成步驟</span></label>
+      <label class="ck"><input type="checkbox"><span>找出一步可以交給 AI 或工具</span></label>
+    </div>
+    <div class="day">
+      <div class="dh"><span>Day 7</span>找人一起走</div>
+      <label class="ck"><input type="checkbox"><span>找一個也在做的人，約好每週互看進度</span></label>
+      <label class="ck"><input type="checkbox"><span>把這7天的備忘錄看一遍</span></label>
+    </div>
+    <div class="tipline">勾選只留在你這台裝置的瀏覽器裡，<b>不會上傳到任何地方</b>，關掉頁面就沒了。</div>
+  </div>
+
+  <!-- 4. 結論 CTA -->
+  <div class="cta fade">
+    <div class="cta-card">
+      <div class="cta-kicker">下一步</div>
+      <h2>自己顧好了，<span class="g">接下來找人一起走</span></h2>
+      <div class="cta-lead">奇點研究所是我們在 Skool 開的「AI ＋ 自媒體」社群。我們自己在用的內容工具、整理過的教學，都放在裡面，每週更新。想做內容、又不想一個人慢慢摸，可以進來看看。</div>
+      <div class="fit">
+        <div class="f">已經在做自媒體，想用 AI 省時間的人</div>
+        <div class="f">以前做過，因為本業忙、做內容太花時間停下來，想重新開始的人</div>
+        <div class="f">完全沒經驗，現在想開始的人</div>
+      </div>
+      <div class="gives">
+        <div class="gt">進來你會拿到</div>
+        <div class="gi">剪輯台、輪播貼文、Threads 這些我們自己在用的 AI 內容工具</div>
+        <div class="gi">整理過的完整教學，加上我們實際做過的心得</div>
+        <div class="gi">一群跟你一樣，正在動的人</div>
+      </div>
+      <div class="btn-wrap">
+        <a class="skbtn" href="https://www.skool.com/d11-lab/about" id="skool-link" target="_blank" rel="noopener">加入 奇點研究所 × D11 →</a>
+        <div class="btn-note">月費方案，詳細內容以 Skool 頁面為準。做完7天，回貼文底下留言告訴我你卡在哪一天</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="fa">傑森所長 @jasonxtsai</div>
+    <div class="fc">Instagram：@jasonxtsai　／　Threads：@jasonxtsai<br>※ 文中案例為個人經驗與匿名個案，數字為概估，不代表每個人都能有相同結果</div>
+  </div>
+
+</div>
+
+<script>
+var cks = document.querySelectorAll('.ck input');
+function tally(){
+  var n = 0;
+  cks.forEach(function(b){ if(b.checked) n++; });
+  document.getElementById('done').textContent = n;
+  document.getElementById('all').textContent = cks.length;
+  document.getElementById('bar').style.width = (n / cks.length * 100) + '%';
+}
+cks.forEach(function(b){ b.addEventListener('change', tally); });
+tally();
+
+function revealOnScroll(){
+  var vh = window.innerHeight || document.documentElement.clientHeight;
+  var els = document.querySelectorAll('.fade:not(.vis)');
+  for(var i=0;i<els.length;i++){
+    if(els[i].getBoundingClientRect().top < vh*0.94){ els[i].classList.add('vis'); }
+  }
+}
+window.addEventListener('scroll', revealOnScroll, {passive:true});
+window.addEventListener('resize', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+revealOnScroll();
+setTimeout(function(){
+  var all = document.querySelectorAll('.fade');
+  for(var i=0;i<all.length;i++){ all[i].classList.add('vis'); }
+}, 2500);
+</script>
+
+<!--
+═══════════════════════════════════════════
+落地頁設定備註（不顯示，給操盤手）
+═══════════════════════════════════════════
+· 用途：「你勸了他很多年」7張輪播（CTA：留言「習慣」）的 DM 承接頁／軟性導流 Skool
+· 結構（子龍 10-01 定）：① 自介（hero＋author-card）② 直接給答案（速查表＋7張摺疊卡）③ 我們在做什麼（三工具卡）＋案例（3個）④ 結論＋Skool CTA；另附7天打勾清單
+· 版型：完全沿用 2026-08-06-chatgpt-setup.html 的 CSS（米色 #F4F1EA＋金橘 #D4902A），沒有新增樣式
+· 語氣：照 Jason 10-01 親改用字（放軟、不怪對方、用「我現在怎麼做」、數字跟中文不空格）
+· 案例來源：Jason_D11_訪談結果.json；人類圖學員、心理測驗皆匿名＋概估；心理測驗成交額註明是朋友社群營收
+· 三段 Skool CTA：.side-cta／.top-cta、.mid-cta、.cta → https://www.skool.com/d11-lab/about（無 ref）
+· 不做 localStorage，頁面明講關掉就沒了
+· 命名：日期前綴（2026-10-01-7-habits.html）
+═══════════════════════════════════════════
+-->
+</body>
+</html>

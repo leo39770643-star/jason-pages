@@ -62,7 +62,8 @@ a{color:var(--gold);text-decoration:none;word-break:break-all;}
 .author-card{margin-top:28px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:var(--r-md);padding:16px 20px;position:relative;z-index:1;}
 .author-card .a{font-weight:700;color:var(--gold);font-size:15px;}
 .author-card{display:flex;align-items:center;gap:22px;}
-.author-card .b{flex:1;margin-top:0;font-size:13.5px;}
+.author-card .b{flex:1;margin-top:0;font-size:15.5px;line-height:1.85;color:var(--text);}
+@media(max-width:480px){.author-card .b{font-size:14.5px;}}
 .author-card .who{flex-shrink:0;width:132px;text-align:center;}
 .author-card .av{display:block;width:120px;height:120px;margin:0 auto 10px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);box-shadow:0 6px 18px rgba(120,90,30,0.16);}
 .author-card .h{font-size:12px;color:var(--dim);margin-top:2px;}

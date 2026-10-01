@@ -61,8 +61,12 @@ a{color:var(--gold);text-decoration:none;word-break:break-all;}
 .stat-op{font-size:20px;color:var(--faint);font-weight:300;}
 .author-card{margin-top:28px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:var(--r-md);padding:16px 20px;position:relative;z-index:1;}
 .author-card .a{font-weight:700;color:var(--gold);font-size:15px;}
-.author-card .a{display:flex;align-items:center;gap:12px;}
-.author-card .av{width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid var(--gold);}
+.author-card{display:flex;align-items:center;gap:22px;}
+.author-card .b{flex:1;margin-top:0;font-size:13.5px;}
+.author-card .who{flex-shrink:0;width:132px;text-align:center;}
+.author-card .av{display:block;width:120px;height:120px;margin:0 auto 10px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);box-shadow:0 6px 18px rgba(120,90,30,0.16);}
+.author-card .h{font-size:12px;color:var(--dim);margin-top:2px;}
+@media(max-width:480px){.author-card{gap:14px;}.author-card .who{width:96px;}.author-card .av{width:88px;height:88px;}}
 .author-card .b{font-size:13px;color:var(--dim);margin-top:5px;line-height:1.75;}
 
 .sec{position:relative;z-index:1;padding:38px 30px;border-top:1px solid var(--line);}
@@ -247,7 +251,7 @@ details.ch[open] .ch-mk::after{transform:rotate(90deg);opacity:0;}
       <div class="stat-op">·</div>
       <div class="stat"><div class="n">7</div><div class="l">天 · 打勾清單</div></div>
     </div>
-    <div class="author-card"><div class="a"><img class="av" src="jason-avatar.jpg" alt="傑森所長" width="44" height="44">傑森所長 @jasonxtsai</div><div class="b">奇點學院 × D11 創辦人。我都說我們是拍影片的：2024年開了 D11，幫店家和品牌做短影音。今年開始把公司的流程大量 AI 化，自己的帳號大概三個月從3,000多做到六萬多。下面這7個習慣，是我自己現在還在練的。</div></div>
+    <div class="author-card"><div class="b">奇點學院 × D11 創辦人。我都說我們是拍影片的：2024年開了 D11，幫店家和品牌做短影音。今年開始把公司的流程大量 AI 化，自己的帳號大概三個月從3,000多做到六萬多。下面這7個習慣，是我自己現在還在練的。</div><div class="who"><img class="av" src="jason-avatar.jpg" alt="傑森所長" width="120" height="120"><div class="a">傑森所長</div><div class="h">@jasonxtsai</div></div></div>
   </div>
 
   <!-- 2. 直接給答案：速查 -->
